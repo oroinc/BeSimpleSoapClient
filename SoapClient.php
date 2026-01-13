@@ -191,15 +191,16 @@ class SoapClient extends \SoapClient
      * Custom request method to be able to modify the SOAP messages.
      * $oneWay parameter is not used at the moment.
      *
-     * @param string $request  Request string
+     * @param string $request Request string
      * @param string $location Location
-     * @param string $action   SOAP action
-     * @param int    $version  SOAP version
-     * @param int    $oneWay   0|1
+     * @param string $action SOAP action
+     * @param int $version SOAP version
+     * @param int $oneWay 0|1
+     * @param string|null $uriParserClass URI parser class name
      *
      * @return string
      */
-    public function __doRequest($request, $location, $action, $version, $oneWay = 0)
+    public function __doRequest($request, $location, $action, $version, $oneWay = 0, ?string $uriParserClass = null)
     {
         // wrap request data in SoapRequest object
         $soapRequest = SoapRequest::create($request, $location, $action, $version);
